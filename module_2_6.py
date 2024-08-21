@@ -6,7 +6,7 @@ print(f'На поле выпало: {random_value}')
 
 
 def consist_value(n):
-    global examples_str
+    examples_str = ''
     list_num = []
     for i in range(n - 1):
         list_num.append(i + 1)
