@@ -4,6 +4,8 @@ from rt_with_exceptions import Runner, Tournament
 
 
 class TournamentTest(TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
@@ -13,6 +15,7 @@ class TournamentTest(TestCase):
         self.runner_two = Runner('Андрей', 9)
         self.runner_three = Runner('Ник', 3)
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_start_1(self):
         self.start = Tournament(90, self.runner_one, self.runner_three)
         result = Tournament.start(self.start)
@@ -20,6 +23,7 @@ class TournamentTest(TestCase):
         last_runner_name = result[max(result)]
         self.assertTrue(last_runner_name == "Ник")
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_start_2(self):
         self.start = Tournament(90, self.runner_two, self.runner_three)
         result = Tournament.start(self.start)
@@ -27,6 +31,8 @@ class TournamentTest(TestCase):
         last_runner_name = result[max(result)]
         self.assertTrue(last_runner_name == "Ник")
 
+
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_start_3(self):
         self.start = Tournament(90, self.runner_one, self.runner_two, self.runner_three)
         result = Tournament.start(self.start)
@@ -38,5 +44,5 @@ class TournamentTest(TestCase):
     def tearDownClass(cls):
         print(cls.all_results)
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
