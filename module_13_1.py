@@ -2,11 +2,10 @@ import asyncio
 
 
 async def start_strongman(name, power):
-    time = 10 - power
     print(f'Силач {name} начал соревнования.')
 
     for i in range(1, 6):
-        await asyncio.sleep(time)
+        await asyncio.sleep(1/power)
         print(f'Силач {name} поднял {i} шар.')
     print(f'Силач {name} закончил соревнования.')
 
